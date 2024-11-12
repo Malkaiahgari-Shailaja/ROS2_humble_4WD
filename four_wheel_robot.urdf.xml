@@ -1,0 +1,78 @@
+<!-- ~/4wd_robot_ws/src/four_wheel_drive/urdf/four_wheel_drive.urdf.xml -->
+<?xml version="1.0" ?>
+<robot name="4wd_robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <link name="base_link">
+        <visual>
+            <geometry>
+                <box size="0.5 0.3 0.1"/>
+            </geometry>
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.5 0.3 0.1"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <!-- Define four wheels -->
+    <!-- Front Left Wheel -->
+    <joint name="front_left_wheel_joint" type="continuous">
+        <parent link="base_link"/>
+        <child link="front_left_wheel"/>
+        <origin xyz="0.25 0.15 0"/>
+        <axis xyz="0 1 0"/>
+    </joint>
+    <link name="front_left_wheel">
+        <visual>
+            <geometry>
+                <cylinder radius="0.05" length="0.02"/>
+            </geometry>
+        </visual>
+    </link>
+
+    <!-- Repeat similar structure for other three wheels -->
+    <!-- Front Right Wheel -->
+    <joint name="front_right_wheel_joint" type="continuous">
+        <parent link="base_link"/>
+        <child link="front_right_wheel"/>
+        <origin xyz="0.25 -0.15 0"/>
+        <axis xyz="0 1 0"/>
+    </joint>
+    <link name="front_right_wheel">
+        <visual>
+            <geometry>
+                <cylinder radius="0.05" length="0.02"/>
+            </geometry>
+        </visual>
+    </link>
+
+    <!-- Rear Left Wheel -->
+    <joint name="rear_left_wheel_joint" type="continuous">
+        <parent link="base_link"/>
+        <child link="rear_left_wheel"/>
+        <origin xyz="-0.25 0.15 0"/>
+        <axis xyz="0 1 0"/>
+    </joint>
+    <link name="rear_left_wheel">
+        <visual>
+            <geometry>
+                <cylinder radius="0.05" length="0.02"/>
+            </geometry>
+        </visual>
+    </link>
+
+    <!-- Rear Right Wheel -->
+    <joint name="rear_right_wheel_joint" type="continuous">
+        <parent link="base_link"/>
+        <child link="rear_right_wheel"/>
+        <origin xyz="-0.25 -0.15 0"/>
+        <axis xyz="0 1 0"/>
+    </joint>
+    <link name="rear_right_wheel">
+        <visual>
+            <geometry>
+                <cylinder radius="0.05" length="0.02"/>
+            </geometry>
+        </visual>
+    </link>
+</robot>
